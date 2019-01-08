@@ -6,7 +6,7 @@ public class Mage {
 
     private Long id;
     private String name;
-    private String element;
+    private Element element;
     private Integer age;
 
 
@@ -26,11 +26,11 @@ public class Mage {
         this.name = name;
     }
 
-    public String getElement() {
+    public Element getElement() {
         return element;
     }
 
-    public void setElement(String element) {
+    public void setElement(Element element) {
         this.element = element;
     }
 

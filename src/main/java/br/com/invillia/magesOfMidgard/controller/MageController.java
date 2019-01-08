@@ -1,6 +1,7 @@
 package br.com.invillia.magesOfMidgard.controller;
 
 import br.com.invillia.magesOfMidgard.model.Mage;
+import br.com.invillia.magesOfMidgard.model.enums.Element;
 import br.com.invillia.magesOfMidgard.service.MageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class MageController {
@@ -31,8 +34,10 @@ public class MageController {
     public ModelAndView add(Mage mage) {
 
         ModelAndView mv = new ModelAndView("postMage");
-        mv.addObject("mage", mage);
-
+        Map <String, Object> att = new HashMap<>();
+        att.put("mage", mage);
+        att.put("elements", Element.values());
+        mv.addAllObjects(att);
         return mv;
     }
 

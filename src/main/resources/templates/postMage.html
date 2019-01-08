@@ -38,7 +38,10 @@
                     <div class="form-group row">
                         <div class="col-md-4" th:classappend="${#fields.hasErrors('element')}? 'has-error'">
                             <label>Elemento</label>
-                            <input type="text" class="form-control input-sm" th:field="*{element}" maxlength="150" placeholder="Informe o elemento"/>
+                            <select class="form-control input-sm" th:field="*{element}">
+                                <option value="" selected="selected">Selecione</option>
+                                <option th:each="element : ${elements}" th:value="${element}" th:text="${element.label}"></option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
