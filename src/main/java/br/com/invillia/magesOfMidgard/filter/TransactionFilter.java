@@ -9,13 +9,14 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@Component
-@Order(1)
+@Component /** Notação de stereotype, dizendo que essa classe é um componente **/
+@Order(1) /** Notação que indica qual a ordem de execução das implementações de uma mesma classe **/
 public class TransactionFilter implements Filter {
+    /**Cria uma instancia de logger, para ser usado para imprimir logs no console**/
+    private static Logger logger = LoggerFactory.getLogger(TransactionFilter.class);
 
-    Logger logger = LoggerFactory.getLogger(TransactionFilter.class);
-
-    @Override
+    /** Médoto que iria monitorar e capturar as requisições de trafego de pagina no cliente **/
+    @Override/** Notação usada para indicar que o metodo esta sobrescrevendo um metodo de uma classe implementada/extendida**/
     public void doFilter ( ServletRequest request, ServletResponse response,
     FilterChain chain) throws IOException, ServletException {
 
@@ -29,4 +30,6 @@ public class TransactionFilter implements Filter {
                 "Committing a transaction for req : {}",
                 req.getRequestURI());
     }
+
+
 }

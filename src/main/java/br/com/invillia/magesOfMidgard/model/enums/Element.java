@@ -1,5 +1,6 @@
 package br.com.invillia.magesOfMidgard.model.enums;
 
+/** Enum do elementos disponiveis para um mago **/
 public enum Element {
     WATER("W", "Água"),
     ARCANE("A", "Arcano"),

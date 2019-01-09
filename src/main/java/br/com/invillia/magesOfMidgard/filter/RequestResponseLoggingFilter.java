@@ -12,13 +12,15 @@ import java.io.IOException;
 
 import java.util.logging.LogRecord;
 
-@Component
-@Order(2)
+@Component /** Notação de stereotype, dizendo que essa classe é um componente **/
+@Order(2) /** Notação que indica qual a ordem de execução das implementações de uma mesma classe **/
 public class RequestResponseLoggingFilter implements Filter {
+    /**Cria uma instancia de logger, para ser usado para imprimir logs no console**/
+    private static Logger logger = LoggerFactory.getLogger(RequestResponseLoggingFilter.class);
 
-    Logger logger = LoggerFactory.getLogger(TransactionFilter.class);
+    /** Médoto que iria monitorar e capturar as requisições de trafego de pagina no cliente **/
+    @Override/** Notação usada para indicar que o metodo esta sobrescrevendo um metodo de uma classe implementada/extendida**/
 
-    @Override
     public void doFilter(
             ServletRequest request,
             ServletResponse response,

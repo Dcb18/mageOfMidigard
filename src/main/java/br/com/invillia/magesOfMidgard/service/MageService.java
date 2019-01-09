@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-@Service
+/** Classe da camada de serviço, onde devem ser implementadas as regras de négocio da aplicação **/
+@Service /** Notação de Stereotype, indicando que sua classe é um serviço **/
 public class MageService {
 
-    @Autowired
+    @Autowired /** injeta as dependencias da clase de repositorio**/
     private FakeMageRepository fakeMageRepository;
 
-    public Mage save(Mage mage) {
-        return fakeMageRepository.save(mage);
+    public void save(Mage mage) {
+        fakeMageRepository.save(mage);
     }
 
-    public Mage upadte(Mage mage) {
-        return fakeMageRepository.update(mage);
+    public void upadte(Mage mage) {
+        fakeMageRepository.update(mage);
     }
 
     public void delete(Long id) {
